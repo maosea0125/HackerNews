@@ -152,7 +152,7 @@ if(isset($_POST['username'])) {
    $db->where("username", HackerNews\Common::validate_input($_POST['username']));
    $db->where("password", HackerNews\Common::validate_input(md5($_POST['password'])));
    $userinfo = $db->getOne("users", Array("user_id", "remember", "commentst", "status"));
-   //echo $db->getLastQuery();
+   echo $db->getLastQuery();
 
    // The submitted details are valid
    if(isset($userinfo["user_id"])) {
