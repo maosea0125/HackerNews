@@ -5,7 +5,7 @@ namespace HackerNews;
 class Common {
 
    static function database($config) {
-      $db = new MysqliDb($config['db.host'], $config['db.username'], $config['db.password'], $config['db.database']);
+      $db = new MysqliDb($config['db.host'], $config['db.username'], $config['db.password'], $config['db.database'], $config['db.port']);
       $db->setPrefix($config['db.prefix']);
       return $db;
    }
