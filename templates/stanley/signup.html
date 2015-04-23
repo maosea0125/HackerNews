@@ -1,68 +1,64 @@
 {% include 'header.html' %}
 
 <div id="white">
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
-    <form class="form1" action="{{base_url}}/signup.php" method="POST">
-      <fieldset>
-        <div id="legend">
-          <legend class="">Signup</legend>
-        </div>
-        <div class="control-group">
-          <!-- Username -->
-          <label class="control-label"  for="username">Username</label>
-          <div class="controls">
-             <input type="text" id="username" name="username" placeholder="" value="{{username_field}}" class="form-control" style="display: inline; " onchange="changeuser(this,'avail');" onkeypress="changeuser(this,'avail');" onkeyUp="changeuser(this,'avail');">
-    	<input type="button" name="avail" id="avail" value="check for availability" onclick="checkUsernamExists('username');" class="btn btn-success"><span id="availres"></span>
-            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-            <span class="warning">{{username_error}}</span>
-          </div>
-        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <form class="form1" action="{{base_url}}/signup.php" method="POST">
+                    <fieldset>
+                        <div id="legend"><legend class="">注册</legend></div>
+                        <div class="control-group">
 
-        <div class="control-group">
-          <!-- E-mail -->
-          <label class="control-label" for="email">E-mail</label>
-          <div class="controls">
-             <input type="text" id="email" name="email" placeholder="" value="{{email_field}}" class="form-control" >
-            <p class="help-block">Please provide your E-mail</p>
-            <span class="warning">{{email_error}}</span>
-          </div>
-        </div>
+                            <!-- Username -->
+                            <label class="control-label"  for="username">用户名</label>
+                            <div class="controls">
+                                <input type="text" id="username" name="username" placeholder="" value="{{username_field}}" class="form-control" style="display: inline; " onchange="changeuser(this,'avail');" onkeypress="changeuser(this,'avail');" onkeyUp="changeuser(this,'avail');">
+                                <input type="button" name="avail" id="avail" value="检查用户名" onclick="checkUsernamExists('username');" class="btn btn-success"><span id="availres"></span>
+                                <p class="help-block">用户名只能包含字母和数字</p>
+                                <span class="warning">{{username_error}}</span>
+                            </div>
+                        </div>
 
-        <div class="control-group">
-          <!-- Password-->
-          <label class="control-label" for="password">Password</label>
-          <div class="controls">
-            <input type="password" id="password" name="password" placeholder="" class="form-control">
-            <p class="help-block">Password should be at least 4 characters</p>
-            <span class="warning">{{password_error}}</span>
-          </div>
-        </div>
+                        <div class="control-group">
+                            <!-- E-mail -->
+                            <label class="control-label" for="email">邮件地址</label>
+                            <div class="controls">
+                                <input type="text" id="email" name="email" placeholder="" value="{{email_field}}" class="form-control" >
+                                <span class="warning">{{email_error}}</span>
+                          </div>
+                        </div>
 
-        <div class="control-group">
-          <!-- Password -->
-          <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-          <div class="controls">
-            <input type="password" id="password2" name="password2" placeholder="" class="form-control">
-            <p class="help-block">Please confirm password</p>
-            <span class="warning">{{password_error}}</span>
-          </div>
-        </div>
+                        <div class="control-group">
+                            <!-- Password-->
+                            <label class="control-label" for="password">密码</label>
+                            <div class="controls">
+                                <input type="password" id="password" name="password" placeholder="" class="form-control">
+                                <p class="help-block">密码必须在4到16个字符之间</p>
+                                <span class="warning">{{password_error}}</span>
+                            </div>
+                        </div>
 
-        <div class="control-group">
-          <!-- Button -->
-          <div class="controls">
-            <button class="btn btn-success">Register</button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
+                        <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label"  for="password_confirm">确认密码</label>
+                            <div class="controls">
+                                <input type="password" id="password2" name="password2" placeholder="" class="form-control">
+                              <span class="warning">{{password_error}}</span>
+                            </div>
+                        </div>
 
-  </div>
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+                                <button class="btn btn-success">注册</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-
 
 {% include 'footer.html' %}
