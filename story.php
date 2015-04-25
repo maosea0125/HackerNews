@@ -72,7 +72,7 @@ if(!isset($story['story_id'])) {
     ))->render('story');
     exit;
 }
-
+var_dump($story);
 $story['domain'] = HackerNews\Common::getDomain($story['story_url']);
 $story['ago'] = HackerNews\Common::time_taken($current_time - $story['story_time']);
 $story['user_link'] = $base_url.'profile.php?id='.$story['user_name'];
