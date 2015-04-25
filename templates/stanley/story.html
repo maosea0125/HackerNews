@@ -7,12 +7,12 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <h4><a href="{{ story.story_url }}">{{ story.story_title }}</a> {% if story.domain %}  ({{story.domain}}) {% endif %}</h4>
                     <p><bd>{{ story.story_votes }} points by <a href={{story.user_link}}>{{ story.user_name }}</a> {{ story.ago }} ago | {{ story.story_comments }} comments</bd></p>
-                    <p>{{ story.story_desc }}</p>
+                    <p>{{ story.story_desc|nl2br }}</p>
                     <br><hr>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2">
                     <a name="commentbox"></a>
-                    <strong>评论</strong><br><br>
+                    <strong>发表评论</strong><br><br>
                     {% if loggedin == 0 %}
                         请 <a href="{{ base_url }}/login.php">登录</a> 或 <a href="{{ base_url }}/signup.php">注册</a>
                     {% else %}
