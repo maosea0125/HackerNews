@@ -18,7 +18,7 @@
                     {% else %}
                         <form name="form1" method="post" action="{{ base_url }}/story.php?id={{ story.story_id }}" style="padding:0px;margin:0px;">
                             <div id="creply" style="display:none;">
-                                <span>Replying to comment by <span id="replynick"></span> (<a href="javascript:replyCancel();">cancel</a>)</span>
+                                <span>回复 <span id="replynick"></span> 的评论(<a href="javascript:replyCancel();">取消</a>)</span>
                             </div>
                             <textarea name="comment" id="comment" style="width:95%;height:100px;"></textarea>
                             <br><br><br>
@@ -38,9 +38,9 @@
                                 {% for comment in comments %}
                                     <ul>
                                         <li>
-                                            <div class="comment_meta"><a href="javascript:voteComment({{ comment.comment_id }} ,1, {{ story.story_id }});"><img id="cup4" src="http://nextbighack.com/hackernews/templates/simple/images/arrow_up.gif" border="0" width="16" height="16"></a><a href="{{comment.user_link}}">{{comment.user_name }}</a> {{ comment.ago }} ago | <span class="comdigs" id="comd{{ comment.comment_id }}">{{ comment.comment_votes }} points</span></div>
+                                            <div class="comment_meta"><a href="javascript:voteComment({{ comment.comment_id }} ,1, {{ story.story_id }});"><img id="cup4" src="/templates/stanley/assets/i/arrow_up.gif" border="0" width="16" height="16"></a><a href="{{comment.user_link}}">{{comment.user_name }}</a> {{ comment.ago }} ago | <span class="comdigs" id="comd{{ comment.comment_id }}">{{ comment.comment_votes }} points</span></div>
                                            <div>{{ comment.comment_desc }} </div>
-                                           <span class="subline">[<a href="#commentbox" onclick="commentReply({{ comment.comment_id }},'{{ comment.user_name }}');">reply</a>]</span>
+                                           <span class="subline">[<a href="#commentbox" onclick="commentReply({{ comment.comment_id }},'{{ comment.user_name }}');">回复</a>]</span>
                                         </li>
                                         {% if comment.replies %}
                                             {{ macros.nested_comments(comment.replies, story) }}
