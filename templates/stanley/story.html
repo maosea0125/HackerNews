@@ -42,7 +42,7 @@
                                                 <a href="javascript:voteComment({{ comment.comment_id }} ,1, {{ story.story_id }});">
                                                     <img id="cup4" src="/templates/stanley/assets/i/arrow_up.gif" border="0" width="16" height="16">
                                                 </a>
-                                                <a href="{{comment.user_link}}">{{comment.user_name }}</a> {{ comment.ago }} 前 | <span class="comdigs" id="comd{{ comment.comment_id }}">{{ comment.comment_votes }} 赞</span>
+                                                <a href="{{comment.user_link}}">{{comment.user_name }}</a> {{ comment.ago }}前 | <span class="comdigs" id="comd{{ comment.comment_id }}">{{ comment.comment_votes }} 赞</span>
                                             </div>
                                             <div>{{ comment.comment_desc }} </div>
                                             <span class="subline">
@@ -62,9 +62,9 @@
                                     <li>
                                         <div class="comment_meta">
                                             <a href="javascript:voteComment( {{ top_comment.comment_id }}, 1, {{ story.story_id }});">
-                                                <img id="cup4" src="http://nextbighack.com/hackernews/templates/simple/images/arrow_up.gif" border="0" width="16" height="16">
+                                                <img id="cup4" src="/templates/stanley/assets/i/arrow_up.gif" border="0" width="16" height="16">
                                             </a>
-                                            <a href="{{top_comment.user_link}}">{{top_comment.user_name }}</a> {{ top_comment.ago }} 前 | <span class="comdigs" id="comd{{ top_comment.comment_id }}">{{ top_comment.comment_votes }} 赞</span>
+                                            <a href="{{top_comment.user_link}}">{{top_comment.user_name }}</a> {{ top_comment.ago }}前 | <span class="comdigs" id="comd{{ top_comment.comment_id }}">{{ top_comment.comment_votes }} 赞</span>
                                         </div>
                                         <div>{{ top_comment.comment_desc }} </div>
                                         <span class="subline">
