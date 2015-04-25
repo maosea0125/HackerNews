@@ -38,9 +38,16 @@
                                 {% for comment in comments %}
                                     <ul>
                                         <li>
-                                            <div class="comment_meta"><a href="javascript:voteComment({{ comment.comment_id }} ,1, {{ story.story_id }});"><img id="cup4" src="/templates/stanley/assets/i/arrow_up.gif" border="0" width="16" height="16"></a><a href="{{comment.user_link}}">{{comment.user_name }}</a> {{ comment.ago }} ago | <span class="comdigs" id="comd{{ comment.comment_id }}">{{ comment.comment_votes }} points</span></div>
-                                           <div>{{ comment.comment_desc }} </div>
-                                           <span class="subline">[<a href="#commentbox" onclick="commentReply({{ comment.comment_id }},'{{ comment.user_name }}');">回复</a>]</span>
+                                            <div class="comment_meta">
+                                                <a href="javascript:voteComment({{ comment.comment_id }} ,1, {{ story.story_id }});">
+                                                    <img id="cup4" src="/templates/stanley/assets/i/arrow_up.gif" border="0" width="16" height="16">
+                                                </a>
+                                                <a href="{{comment.user_link}}">{{comment.user_name }}</a> {{ comment.ago }} ago | <span class="comdigs" id="comd{{ comment.comment_id }}">{{ comment.comment_votes }} points</span>
+                                            </div>
+                                            <div>{{ comment.comment_desc }} </div>
+                                            <span class="subline">
+                                                [<a href="#commentbox" onclick="commentReply({{ comment.comment_id }},'{{ comment.user_name }}');">回复</a>]
+                                            </span>
                                         </li>
                                         {% if comment.replies %}
                                             {{ macros.nested_comments(comment.replies, story) }}
@@ -53,9 +60,16 @@
                             {% for top_comment in comments %}
                                 <ul class="top-comment">
                                     <li>
-                                        <div class="comment_meta"><a href="javascript:voteComment( {{ top_comment.comment_id }}, 1, {{ story.story_id }});"><img id="cup4" src="http://nextbighack.com/hackernews/templates/simple/images/arrow_up.gif" border="0" width="16" height="16"></a><a href="{{top_comment.user_link}}">{{top_comment.user_name }}</a> {{ top_comment.ago }} ago | <span class="comdigs" id="comd{{ top_comment.comment_id }}">{{ top_comment.comment_votes }} points</span></div>
+                                        <div class="comment_meta">
+                                            <a href="javascript:voteComment( {{ top_comment.comment_id }}, 1, {{ story.story_id }});">
+                                                <img id="cup4" src="http://nextbighack.com/hackernews/templates/simple/images/arrow_up.gif" border="0" width="16" height="16">
+                                            </a>
+                                            <a href="{{top_comment.user_link}}">{{top_comment.user_name }}</a> {{ top_comment.ago }} ago | <span class="comdigs" id="comd{{ top_comment.comment_id }}">{{ top_comment.comment_votes }} points</span>
+                                        </div>
                                         <div>{{ top_comment.comment_desc }} </div>
-                                        <span class="subline">[<a href="#commentbox" onclick="commentReply({{ top_comment.comment_id }},'{{ top_comment.user_name }}');">reply</a>]</span>
+                                        <span class="subline">
+                                            [<a href="#commentbox" onclick="commentReply({{ top_comment.comment_id }},'{{ top_comment.user_name }}');">回复</a>]
+                                        </span>
                                     </li>
                                     {{ macros.nested_comments(top_comment.replies, story) }}
                                 </ul>
