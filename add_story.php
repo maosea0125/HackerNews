@@ -34,6 +34,37 @@ if(isset($_GET['story_url'])) {
     $_POST['story_url'] = $_GET['story_url'];
 }
 
+// Check title & url & desc
+$errors = 0;
+if(strlen($_POST['story_title']) < 4) {
+    $errors++;
+    $titleError = "文章标题太短啦，最少4个字符";
+}
+if(!empty($_POST['story_desc']) && (strlen($_POST['story_desc']) < 10)) {
+    $errors++;
+    $descError = "描述太短啦，最少10个字符";
+}
+if(!preg_match('/^(http|https|ftp):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_-]*)+):?(\d+)?\/?/i', $_POST['story_url'])) {
+    $errors++;
+    $urlError = "请输入有效的URL地址";
+}
+
+if($errors != 0){
+    $twig = new HackerNews\TwigEngine($config);
+    echo $twig->setVars(array(
+        'loggedin'    => $loggedin,
+        'username'    => $_SESSION['hn_login']['name'],
+        'userid'      => $_SESSION['hn_login']['id'],
+        'story_url'   => $_POST['story_url'],
+        'story_title' => $_POST['story_title'],
+        'story_desc'  => $_POST['story_desc'],
+        'title_error' => $titleError,
+        'url_error'   => $urlError,
+        'desc_error'  => $descError,
+    ))->render('new_story');
+    exit;
+}
+
 // Check if a url has been submitted
 if(isset($_POST['story_url']) && !empty($_POST['story_url'])) {
     if(!preg_match('/^(http|https|ftp):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_-]*)+):?(\d+)?\/?/i', $_POST['story_url'])) {
