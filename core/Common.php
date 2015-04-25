@@ -132,35 +132,27 @@ class Common {
       return $randstr;
    }
 
-   static function time_taken($time) {
-      if($time > 86400) {
-         $days = floor($time/86400);
-         $hours = floor(($time-($days*86400))/3600);
+    static function time_taken($time) {
+        if($time > 86400) {
+        $days = floor($time/86400);
+        $hours = floor(($time-($days*86400))/3600);
+        
+        $took = $days . ' 天';
+        } elseif($time > 3600) {
+            $hours = floor(($time/60)/60);
+            $mins = floor(($time-($hours*3600))/60);
+            
+            $took = $hours.' 小时';
+        } elseif($time > 60) {
+            $mins = floor($time/60);
 
-         if($days > 1) {
-            $took = $days . ' days';
-         } else {
-            $took = $days . ' day';
-         }
-      } elseif($time > 3600) {
-         $hours = floor(($time/60)/60);
-         $mins = floor(($time-($hours*3600))/60);
+            $took = $mins . ' 分钟';
+        } else {
+            $took = $time . ' 秒';
+        }
 
-         if($hours > 1) {
-            $took = $hours.' hours';
-         } else {
-            $took = $hours.' hour';
-         }
-      } elseif($time > 60) {
-         $mins = floor($time/60);
-
-         $took = $mins . ' minutes';
-      } else {
-         $took = $time . ' seconds';
-      }
-
-      return $took;
-   }
+        return $took;
+    }
 
    static function makeInt ($x,$signed=false) {
       if(!is_numeric($x)) {
