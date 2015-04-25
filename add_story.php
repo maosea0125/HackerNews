@@ -49,15 +49,15 @@ $_POST['story_desc'] = strip_tags($_POST['story_desc']);
 $errors = 0;
 if(strlen($_POST['story_title']) < 4) {
     $errors++;
-    $titleError = "ÎÄÕÂ±êÌâÌ«¶ÌÀ²£¬×îÉÙ4¸ö×Ö·û";
+    $titleError = "æ–‡ç« æ ‡é¢˜å¤ªçŸ­å•¦ï¼Œæœ€å°‘4ä¸ªå­—ç¬¦";
 }
 if(empty($_POST['story_desc']) || (strlen($_POST['story_desc']) < 10)) {
     $errors++;
-    $descError = "ÃèÊöÌ«¶ÌÀ²£¬×îÉÙ10¸ö×Ö·û";
+    $descError = "æè¿°å¤ªçŸ­å•¦ï¼Œæœ€å°‘10ä¸ªå­—ç¬¦";
 }
 if(!preg_match('/^(http|https|ftp):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_-]*)+):?(\d+)?\/?/i', $_POST['story_url'])) {
     $errors++;
-    $urlError = "ÇëÊäÈëÓÐÐ§µÄURLµØÖ·";
+    $urlError = "è¯·è¾“å…¥æœ‰æ•ˆçš„URLåœ°å€";
 }
 
 if($errors != 0){
