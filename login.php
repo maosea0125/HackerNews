@@ -6,36 +6,35 @@ require 'vendor/autoload.php';
 session_start();
 
 function send_forgot_email($email,$id,$config, $db) {
-   $time = time();
-   $rand = getrandnum(10);
-   $forgot = md5($time.'_:_'.$rand.'_:_'.$email);
+    $time = time();
+    $rand = getrandnum(10);
+    $forgot = md5($time.'_:_'.$rand.'_:_'.$email);
 
-   $db->where("user_id", addslashes($id));
-   $db->update("users", Array("forgot" => addslashes($forgot)));
-   echo $db->getLastQuery();
+    $db->where("user_id", addslashes($id));
+    $db->update("users", Array("forgot" => addslashes($forgot)));
 
-   $mail = new \PHPMailer();
+    $mail = new \PHPMailer();
 
-   if($config['email.type'] == 'smtp') {
-      $mail->IsSMTP();
-      $mail->SMTPAuth = true;
-      $mail->Username = $config['email.smtp.user'];
-      $mail->Password = $config['email.smtp.pass'];
-      $mail->Host = $config['email.smtp.host'];
-   } else if ($config['email.type'] == 'sendmail') {
-      $mail->IsSendmail();
-   } else {
-      $mail->IsMail();
-   }
+    if($config['email.type'] == 'smtp') {
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->Username = $config['email.smtp.user'];
+        $mail->Password = $config['email.smtp.pass'];
+        $mail->Host = $config['email.smtp.host'];
+    } else if ($config['email.type'] == 'sendmail') {
+        $mail->IsSendmail();
+    } else {
+        $mail->IsMail();
+    }
 
-   $mail->FromName = $config['site.title'];
-   $mail->From = $config['site.admin_email'];
-   $mail->AddAddress($email);
+    $mail->FromName = $config['site.title'];
+    $mail->From = $config['site.admin_email'];
+    $mail->AddAddress($email);
 
-   $mail->Subject = $config['site.title'] . ": Forgot Password";
-   $mail->Body = "To reset your password please click the link below:\n\n".$config['site.base_url'].$config['site.base_path']."/login.php?forgot=".$forgot."&r=".$rand."&e=".$email."&t=".$time;
-   $mail->IsHTML(false);
-   $mail->Send();
+    $mail->Subject = $config['site.title'] . ": 忘记密码";
+    $mail->Body = "请点击链接重置密码:\n\n".$config['site.base_url'].$config['site.base_path']."/login.php?forgot=".$forgot."&r=".$rand."&e=".$email."&t=".$time;
+    $mail->IsHTML(false);
+    $mail->Send();
 }
 
 
@@ -152,7 +151,6 @@ if(isset($_POST['username'])) {
    $db->where("username", HackerNews\Common::validate_input($_POST['username']));
    $db->where("password", HackerNews\Common::validate_input(md5($_POST['password'])));
    $userinfo = $db->getOne("users", Array("user_id", "remember", "commentst", "status"));
-   echo $db->getLastQuery();
 
    // The submitted details are valid
    if(isset($userinfo["user_id"])) {
