@@ -73,7 +73,7 @@ if(!isset($story['story_id'])) {
     exit;
 }
 
-$story['story_desc'] = preg_replace('#(\\\r|\\\r\\\n|\\\n)#', '<br/>', $story['story_desc']);
+$story['story_desc'] = preg_replace('#(\\\r\\\n)#', '<br/>', $story['story_desc']);
 $story['domain']     = HackerNews\Common::getDomain($story['story_url']);
 $story['ago']        = HackerNews\Common::time_taken($current_time - $story['story_time']);
 $story['user_link']  = $base_url.'profile.php?id='.$story['user_name'];
