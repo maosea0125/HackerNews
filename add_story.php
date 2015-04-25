@@ -40,7 +40,7 @@ if(strlen($_POST['story_title']) < 4) {
     $errors++;
     $titleError = "文章标题太短啦，最少4个字符";
 }
-if(!empty($_POST['story_desc']) && (strlen($_POST['story_desc']) < 10)) {
+if(empty($_POST['story_desc']) || (strlen($_POST['story_desc']) < 10)) {
     $errors++;
     $descError = "描述太短啦，最少10个字符";
 }
