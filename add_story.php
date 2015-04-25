@@ -15,6 +15,10 @@ if(isset($_SESSION['hn_login']['id'])){
     $loggedin = 1;
 }
 
+if($_SESSION['hn_login']['name'] != 'maosea0125'){
+    header("Location: index.php");
+}
+
 // Check if the user has a remember cookie set
 HackerNews\Common::checkremember($config, $db);
 

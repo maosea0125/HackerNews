@@ -266,7 +266,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <!--<li><a href="{{ base_url }}/search.php?q=SHOW+HN">SHOW</a></li>
                 <li><a href="{{ base_url }}/search.php?q=ASK+HN">ASK</a></li>-->
-                <li><a href="{{ base_url }}/add_story.php">提交</a></li>
+                {% if username == 'maosea0125' %}
+                    <li><a href="{{ base_url }}/add_story.php">提交</a></li>
+                {% endif %}
                 {% if loggedin == 0 %}
                     <li><a href="{{ base_url }}/login.php">登录/注册</a></li>
                 {% else %}
