@@ -46,79 +46,78 @@ class Common {
       }
    }
 
-   static function page_nav($total,$page,$perpage,$url) {
-      $page_arr = array();
-      $arr_count = 0;
+    static function page_nav($total,$page,$perpage,$url) {
+        $page_arr = array();
+        $arr_count = 0;
 
-      if(strstr($url, "?")) {
-         $url = $url . '&';
-      } else {
-         $url = $url . '?';
-      }
+        if(strstr($url, "?")) {
+            $url = $url . '&';
+        } else {
+            $url = $url . '?';
+        }
 
-      $total_pages = ceil($total/$perpage);
-      $llimit = 1;
-      $rlimit = $total_pages;
-      $window = 5;
+        $total_pages = ceil($total/$perpage);
+        $llimit = 1;
+        $rlimit = $total_pages;
+        $window = 5;
 
-      if ($page<1 || !$page) {
-         $page=1;
-      }
+        if ($page<1 || !$page) {
+            $page=1;
+        }
 
-      if(($page - floor($window/2)) <= 0) {
-         $llimit = 1;
-         if($window > $total_pages) {
-            $rlimit = $total_pages;
-         } else {
-            $rlimit = $window;
-         }
-      } else {
-         if(($page + floor($window/2)) > $total_pages) {
-            if ($total_pages - $window < 0) {
-               $llimit = 1;
+        if(($page - floor($window/2)) <= 0) {
+            $llimit = 1;
+            if($window > $total_pages) {
+                $rlimit = $total_pages;
             } else {
-               $llimit = $total_pages - $window + 1;
+                $rlimit = $window;
             }
-            $rlimit = $total_pages;
-         } else {
-            $llimit = $page - floor($window/2);
-            $rlimit = $page + floor($window/2);
-         }
-      }
+        } else {
+            if(($page + floor($window/2)) > $total_pages) {
+                if ($total_pages - $window < 0) {
+                    $llimit = 1;
+                } else {
+                    $llimit = $total_pages - $window + 1;
+                }
+                $rlimit = $total_pages;
+            } else {
+                $llimit = $page - floor($window/2);
+                $rlimit = $page + floor($window/2);
+            }
+        }
 
-      if ($page>1) {
-         $page_arr[$arr_count]['title'] = "Prev";
-         $page_arr[$arr_count]['link'] = $url.'page='. ($page-1);
-         $page_arr[$arr_count]['current'] = 0;
-
-         $arr_count++;
-      }
-
-      for ($x=$llimit;$x <= $rlimit;$x++) {
-         if ($x <> $page) {
-            $page_arr[$arr_count]['title'] = $x;
-            $page_arr[$arr_count]['link'] =  $url.'page='. $x;
+        if ($page>1) {
+            $page_arr[$arr_count]['title'] = "Prev";
+            $page_arr[$arr_count]['link'] = $url.'page='. ($page-1);
             $page_arr[$arr_count]['current'] = 0;
 
-         } else {
-            $page_arr[$arr_count]['title'] = $x;
-            $page_arr[$arr_count]['link'] =  $url.'page='. $x;
-            $page_arr[$arr_count]['current'] = 1;
-         }
+            $arr_count++;
+        }
 
-         $arr_count++;
-      }
+        for ($x=$llimit;$x <= $rlimit;$x++) {
+            if ($x <> $page) {
+                $page_arr[$arr_count]['title'] = $x;
+                $page_arr[$arr_count]['link'] =  $url.'page='. $x;
+                $page_arr[$arr_count]['current'] = 0;
+            } else {
+                $page_arr[$arr_count]['title'] = $x;
+                $page_arr[$arr_count]['link'] =  $url.'page='. $x;
+                $page_arr[$arr_count]['current'] = 1;
+            }
 
-      if($page < $total_pages) {
-         $page_arr[$arr_count]['title'] = "Next";
-         $page_arr[$arr_count]['link'] =  $url.'page='. ($page+1);
-         $page_arr[$arr_count]['current'] = 0;
+            $arr_count++;
+        }
 
-         $arr_count++;
-      }
+        if($page < $total_pages) {
+            $page_arr[$arr_count]['title'] = "下一页";
+            $page_arr[$arr_count]['link'] =  $url.'page='. ($page+1);
+            $page_arr[$arr_count]['current'] = 0;
 
-      return $page_arr;
-   }
+            $arr_count++;
+        }
+
+        return $page_arr;
+    }
 
    static function getrandnum($length) {
       $randstr='';
