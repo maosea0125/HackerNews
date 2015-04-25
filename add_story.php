@@ -33,7 +33,7 @@ if(isset($_GET['ref'])) {
 if(isset($_GET['story_url'])) {
     $_POST['story_url'] = $_GET['story_url'];
 }
-var_dump($_POST);exit;
+var_dump($_POST);
 // Check title & url & desc
 $errors = 0;
 if(strlen($_POST['story_title']) < 4) {
