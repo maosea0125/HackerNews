@@ -72,7 +72,7 @@ if(!isset($story['story_id'])) {
     ))->render('story');
     exit;
 }
-
+var_dump($story['story_desc']);
 $story['story_desc'] = preg_replace("/\r\n|\r|\n/", '<br/>', $story['story_desc']);
 $story['domain']     = HackerNews\Common::getDomain($story['story_url']);
 $story['ago']        = HackerNews\Common::time_taken($current_time - $story['story_time']);
