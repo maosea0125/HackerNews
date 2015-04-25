@@ -10,7 +10,7 @@
                         <h5 style="display: block; min-width: 20px">{% if story.voted == 0 %}<a href="javascript:vote({{ story.story_id }});"><span id="digbut{{ story.story_id }}" class="caret caret-reversed"> </span></a>{% endif %}</h5>
                     </div>
                     <div style="float: left;">
-                        <h4 class="story_title"><a href="{{ story.story_url }}">{{ story.story_title }}</a></h4>
+                        <h5 class="story_title"><a href="{{ story.story_url }}">{{ story.story_title }}</a></h5>
                         <p><bd>{{ story.story_votes }} 赞 | <!--<a href="{{story.user_link}}">{{ story.user_name }}</a>-->{{ story.ago }}前 | {% if story.story_comments %} <a href="{{ story.story_link }}">{{ story.story_comments }}条评论 </a> {% else %} <a href="{{ story.story_link }}">发表评论</a> {% endif %}</bd></p>
                     </div>
                 </div>
