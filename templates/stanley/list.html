@@ -7,7 +7,7 @@
             {% for story in stories %}
                 <div class="col-lg-8 col-lg-offset-2" style="clear: both;height:60px;">
                     <div style="float: left;padding-right: 10px;">
-                        <h4 style="display: block; min-width: 20px">{% if story.voted == 0 %}<a href="javascript:vote({{ story.story_id }});"><span id="digbut{{ story.story_id }}" class="caret caret-reversed"> </span></a>{% endif %}</h4>
+                        <h5 style="display: block; min-width: 20px">{% if story.voted == 0 %}<a href="javascript:vote({{ story.story_id }});"><span id="digbut{{ story.story_id }}" class="caret caret-reversed"> </span></a>{% endif %}</h5>
                     </div>
                     <div style="float: left;">
                         <h4 class="story_title"><a href="{{ story.story_url }}">{{ story.story_title }}</a></h4>
