@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h4><a href="{{ story.story_url }}">{{ story.story_title }}</a> {% if story.domain %}  ({{story.domain}}) {% endif %}</h4>
-                    <p><bd>{{ story.story_votes }} points by <a href={{story.user_link}}>{{ story.user_name }}</a> {{ story.ago }} 前 | {{ story.story_comments }} 条评论</bd></p>
+                    <p><bd>{{ story.story_votes }}赞 <a href={{story.user_link}}>{{ story.user_name }}</a> {{ story.ago }} 前 | {{ story.story_comments }} 条评论</bd></p>
                     <p>{{ story.story_desc|raw|nl2br }}</p>
                     <br><hr>
                 </div>
