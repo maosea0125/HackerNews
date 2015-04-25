@@ -16,43 +16,42 @@ $stories = array();
 
 // If no page is specified set to first page
 if(!isset($_GET['page'])) {
-   $_GET['page'] = 1;
+    $_GET['page'] = 1;
 } else {
-   $_GET['page'] = makeInt($_GET['page']);
+    $_GET['page'] = HackerNews\Common::makeInt($_GET['page']);
 }
 
 $db->orderBy("story_score", "DESC");
-$all_stories = $db->get("stories", Array(HackerNews\Common::validate_input(($_GET['page']-1)*10),10));
+$all_stories = $db->get("stories", Array(HackerNews\Common::validate_input(($_GET['page']-1)*10), 10));
 
 $votes_to_check = [];
 
 foreach($all_stories as $story) {
-   $story['story_title'] = stripslashes($story['story_title']);
-   $story['story_desc'] = stripslashes($story['story_desc']);
+    $story['story_title'] = stripslashes($story['story_title']);
+    $story['story_desc'] = stripslashes($story['story_desc']);
 
-   if($story['story_url'] == '') {
-      $story['story_url'] = $base_url.'story.php?id='.$story['story_id'];
-      $story['story_domain'] = '';
-   } else {
-      $story['story_domain'] = HackerNews\Common::getDomain($story['story_url']);
-   }
+    if($story['story_url'] == '') {
+        $story['story_url'] = $base_url.'story.php?id='.$story['story_id'];
+        $story['story_domain'] = '';
+    } else {
+        $story['story_domain'] = HackerNews\Common::getDomain($story['story_url']);
+    }
 
-   $stories[$story['story_id']] = $story;
-   $stories[$story['story_id']]['votes'] = 0;
-   $stories[$story['story_id']]['buried'] = 0;
-   $stories[$story['story_id']]['ago'] = HackerNews\Common::time_taken((time()-$story['story_time']));
-   $stories[$story['story_id']]['domain'] = $story['story_domain'];
+    $stories[$story['story_id']] = $story;
+    $stories[$story['story_id']]['votes'] = 0;
+    $stories[$story['story_id']]['buried'] = 0;
+    $stories[$story['story_id']]['ago'] = HackerNews\Common::time_taken((time()-$story['story_time']));
+    $stories[$story['story_id']]['domain'] = $story['story_domain'];
 
-   $stories[$story['story_id']]['story_link'] = $base_url.'story.php?id='.$story['story_id'];
-   $stories[$story['story_id']]['user_link'] = $base_url.'profile.php?id='.$story['user_id'];
+    $stories[$story['story_id']]['story_link'] = $base_url.'story.php?id='.$story['story_id'];
+    $stories[$story['story_id']]['user_link'] = $base_url.'profile.php?id='.$story['user_id'];
 
-   if(isset($_SESSION['hn_login']['id'])) {
-      // If user logged in, check if they voted on any story.
-      if(!isset($_SESSION['voted'][$story['story_id']])) {
-         $votes_to_check[] = $story['story_id'];
-      }
-
-   }
+    if(isset($_SESSION['hn_login']['id'])) {
+        // If user logged in, check if they voted on any story.
+        if(!isset($_SESSION['voted'][$story['story_id']])) {
+            $votes_to_check[] = $story['story_id'];
+        }
+    }
 }
 
 // Get total stories in the system.

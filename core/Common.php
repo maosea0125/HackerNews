@@ -153,23 +153,23 @@ class Common {
         return $took;
     }
 
-   static function makeInt ($x,$signed=false) {
-      if(!is_numeric($x)) {
-         $x = intval($x);
-      }
+    static function makeInt ($x,$signed=false) {
+        if(!is_numeric($x)) {
+            $x = intval($x);
+        }
 
-      if(!$x) {
-         $x=1;
-      }
-
-      if(!$signed) {
-         if($x<1) {
+        if(!$x) {
             $x=1;
-         }
-      }
+        }
 
-      return $x;
-   }
+        if(!$signed) {
+            if($x<1) {
+                $x=1;
+            }
+        }
+
+        return $x;
+    }
 
    static function getDomain($url) {
       $parts = parse_url($url);
