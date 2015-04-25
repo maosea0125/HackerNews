@@ -15,7 +15,7 @@ if(isset($_SESSION['hn_login']['id'])){
     $loggedin = 1;
 }
 
-if($_SESSION['hn_login']['name'] != 'maosea0125'){
+if($_SESSION['hn_login']['name'] != 'maosea0125' && $_SESSION['hn_login']['name'] != 'jmao'){
     header("Location: index.php");
 }
 
