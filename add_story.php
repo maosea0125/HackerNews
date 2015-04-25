@@ -51,7 +51,7 @@ if(!preg_match('/^(http|https|ftp):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_
 
 if($errors != 0){
     $twig = new HackerNews\TwigEngine($config);
-    echo $twig->setVars(array(
+    $vars = array(
         'loggedin'    => $loggedin,
         'username'    => $_SESSION['hn_login']['name'],
         'userid'      => $_SESSION['hn_login']['id'],
@@ -61,7 +61,9 @@ if($errors != 0){
         'title_error' => $titleError,
         'url_error'   => $urlError,
         'desc_error'  => $descError,
-    ))->render('new_story');
+    );
+    var_dump($vars);
+    echo $twig->setVars($vars)->render('new_story');
     exit;
 }
 
