@@ -10,8 +10,8 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 body {
-  	background-color: #ffffff;
-  	font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #555;
@@ -22,15 +22,15 @@ body {
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     color: #333;
 }
 
 h1 {
-	font-size: 35px;
-	margin-top: 30px;
-	margin-bottom: 30px;
+    font-size: 35px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 
@@ -86,41 +86,41 @@ a:after {
 
 
 .navbar {
-	text-transform: uppercase;
-	margin-bottom: 0px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
 }
 
 .navbar-inverse {
-	padding-bottom: 20px;
-	padding-top: 20px;
+    padding-bottom: 0px;
+    padding-top: 0px;
 }
 
 .navbar-inverse {
-	background-color: #1abc9c;
-	background-color: #ff6600;
-	border-color: #16a085;
+    background-color: #1abc9c;
+    background-color: #ff6600;
+    border-color: #16a085;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-	color: white;
+    color: white;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
-	color: #222222;
+    color: #222222;
 }
 
 .navbar-brand {
-	font-weight: 700;
-	font-size: 20px;
-	letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
 
 .navbar-inverse .navbar-brand {
-	color: white;
+    color: white;
 }
 
 .navbar-inverse .navbar-toggle {
-	border-color: transparent;
+    border-color: transparent;
 }
 
 .progress-bar-theme {
@@ -132,79 +132,79 @@ a:after {
 /* Helpers */
 
 .mt {
-	margin-top: 40px;
-	margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .pt {
-	padding-top: 50px;
-	padding-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 
 /* +++++ WRAP SECTIONS +++++ */
 
 #ww {
-	padding-top: 70px;
-	padding-bottom: 70px;
-	background-color: #f2f2f2;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #f2f2f2;
 }
 
 
 #footer {
-	background-color: #2f2f2f;
-	padding-top: 50px;
-	padding-bottom: 50px;
+    background-color: #2f2f2f;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 #footer p {
-	color: white;
+    color: white;
 }
 
 #footer h4 {
-	color: white;
-	text-transform: uppercase;
-	padding-bottom: 20px;
+    color: white;
+    text-transform: uppercase;
+    padding-bottom: 20px;
 }
 
 
 /* +++++ Color Wraps / Blog Page +++++ */
 
 #grey {
-	padding-top: 60px;
-	padding-bottom: 60px;
-	background-color: #f2f2f2;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f2f2f2;
 }
 
 #white {
-	background-color: #ffffff;
+    background-color: #ffffff;
 }
 
 
 
 /* Blog Date*/
 bd {
-	font-size: 12px;
-	text-transform: uppercase;
-	color: #555;
-	font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #555;
+    font-weight: 700;
 }
 
 /* Blog Author*/
 ba {
-	font-size: 12px;
-	text-transform: uppercase;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 /* Blog Quote */
 .bq {
-	font-size: 22px;
-	padding-top: 30px;
+    font-size: 22px;
+    padding-top: 30px;
 }
 
 /* Blog Tags */
 bt {
-	font-size: 12px;
+    font-size: 12px;
 }
 
 /* ================== PORTFOLIO IMAGES HOVER EFFECT ================== */
@@ -228,19 +228,19 @@ bt {
     }
 
 .zoom2 {
-	opacity: 1;
+    opacity: 1;
 }
 
 .zoom2:hover {
-	opacity: 0.5;
+    opacity: 0.5;
 }
 
 /* glyphicon Configuration */
 
 .glyphicon {
-	font-size: 40px;
-	color: #1abc9c;
-	color: #ff6600;
+    font-size: 40px;
+    color: #1abc9c;
+    color: #ff6600;
 }
 
 
@@ -406,108 +406,108 @@ li ul {
 }
 
 /*
-	.navbar-collapse {
-		position: relative;
-		padding-top: 30px !important;
-		max-height: 270px;
-	}
-	.navbar-collapse form[role="search"] {
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		width: 100%;
-		padding: 0px;
-		margin: 0px;
-		z-index: 0;
-	}
-	.navbar-collapse form[role="search"] button,
-	.navbar-collapse form[role="search"] input {
-		padding: 8px 12px;
-		border-radius: 0px;
-		border-width: 0px;
-		color: #fff;
-		background-color: #1abc9c;
-		box-shadow: none;
-		outline: none;
-	}
-	.navbar-collapse form[role="search"] input {
-		padding: 16px 12px;
-		font-size: 14pt;
-		font-style: italic;
-		color: #fff;
-		box-shadow: none;
-	}
-	.navbar-collapse form[role="search"] button[type="reset"] {
-		display: none;
-	}
+    .navbar-collapse {
+        position: relative;
+        padding-top: 30px !important;
+        max-height: 270px;
+    }
+    .navbar-collapse form[role="search"] {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        z-index: 0;
+    }
+    .navbar-collapse form[role="search"] button,
+    .navbar-collapse form[role="search"] input {
+        padding: 8px 12px;
+        border-radius: 0px;
+        border-width: 0px;
+        color: #fff;
+        background-color: #1abc9c;
+        box-shadow: none;
+        outline: none;
+    }
+    .navbar-collapse form[role="search"] input {
+        padding: 16px 12px;
+        font-size: 14pt;
+        font-style: italic;
+        color: #fff;
+        box-shadow: none;
+    }
+    .navbar-collapse form[role="search"] button[type="reset"] {
+        display: none;
+    }
 
-	@media (min-width: 768px) {
-		.navbar-collapse {
-			padding-top: 0px !important;
-			padding-right: 38px !important;
-		}
-		.navbar-collapse form[role="search"] {
-			width: 38px;
-		}
-		.navbar-collapse form[role="search"] button,
-		.navbar-collapse form[role="search"] input {
-			padding: 15px 12px;
-		}
-		.navbar-collapse form[role="search"] input {
-			font-size: 18pt;
-			opacity: 0;
-			display: none;
+    @media (min-width: 768px) {
+        .navbar-collapse {
+            padding-top: 0px !important;
+            padding-right: 38px !important;
+        }
+        .navbar-collapse form[role="search"] {
+            width: 38px;
+        }
+        .navbar-collapse form[role="search"] button,
+        .navbar-collapse form[role="search"] input {
+            padding: 15px 12px;
+        }
+        .navbar-collapse form[role="search"] input {
+            font-size: 18pt;
+            opacity: 0;
+            display: none;
             height: 50px;
-		}
-		.navbar-collapse form[role="search"].active {
-			width: 100%;
-		}
-		.navbar-collapse form[role="search"].active button,
-		.navbar-collapse form[role="search"].active input {
-			display: table-cell;
-			opacity: 1;
-		}
-    	.navbar-collapse form[role="search"].active input {
-			width: 100%;
-			color: #fff;
-		}
-	}
-	.glyphicon-color {
-		color: #fff;
-		font-size: 14px;
-	}
+        }
+        .navbar-collapse form[role="search"].active {
+            width: 100%;
+        }
+        .navbar-collapse form[role="search"].active button,
+        .navbar-collapse form[role="search"].active input {
+            display: table-cell;
+            opacity: 1;
+        }
+        .navbar-collapse form[role="search"].active input {
+            width: 100%;
+            color: #fff;
+        }
+    }
+    .glyphicon-color {
+        color: #fff;
+        font-size: 14px;
+    }
 */
-	.glyphicon-style {
-		color: #fff;
-		font-size: 14px;
-		background-color: #1abc9c;
-		background-color: #ff6600;
-	}
-	.search-box {
-		max-width: 200px;
-	}
-	.search-box input {
-		color: #fff;
-		background-color: #1abc9c;
-		background-color: #ff6600;
-		border: 1px solid #fff;
-	}
-	.search-box button {
-		color: #fff;
-		background-color: #1abc9c;
-		background-color: #ff6600;
-		border: 1px solid #fff;
-	}
+    .glyphicon-style {
+        color: #fff;
+        font-size: 14px;
+        background-color: #1abc9c;
+        background-color: #ff6600;
+    }
+    .search-box {
+        max-width: 200px;
+    }
+    .search-box input {
+        color: #fff;
+        background-color: #1abc9c;
+        background-color: #ff6600;
+        border: 1px solid #fff;
+    }
+    .search-box button {
+        color: #fff;
+        background-color: #1abc9c;
+        background-color: #ff6600;
+        border: 1px solid #fff;
+    }
 
-	#white .container {
-		padding-top: 60px;
-		padding-bottom: 60px;
-		background-color: #f6f6ef;
-	}
-	.domain {
-		font-size: 10px;
-		color: #555;
-	}
+    #white .container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        background-color: #f6f6ef;
+    }
+    .domain {
+        font-size: 10px;
+        color: #555;
+    }
 
 
 .profile
