@@ -1,6 +1,8 @@
 <?php
-require '../vendor/autoload.php';
-require 'simple_html_dom.php';
+define('ROOT', realpath(dirname(__FILE__).'/../'));
+
+require ROOT . '/vendor/autoload.php';
+require ROOT . '/scripts/simple_html_dom.php';
 
 $config = new HackerNews\Config('../config.ini');
 $base_url = $config['site.base_url'] . $config['site.base_path'] . '/';
