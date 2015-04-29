@@ -66,5 +66,6 @@ for ( $messagenumber = $total; $messagenumber >= 1; $messagenumber-- ){
         
         imap_delete($mailBox, $messagenumber);
     }
+    sleep(1);
 }
 imap_close($mailBox, CL_EXPUNGE);
