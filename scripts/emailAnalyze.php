@@ -29,28 +29,39 @@ for ( $messagenumber = $total; $messagenumber >= 1; $messagenumber-- ){
         
         $pageHtml = file_get_html($url);
         
-        if($pageHtml){
-            $titleObject = $pageHtml->find('.rich_media_title', 0);
-            $title = $titleObject ? $titleObject->plaintext : "";
+        //check duplicate
+        $db->where("story_url", HackerNews\Common::validate_input($url));
+        $duplicateStories = $db->get("stories", 10,
+            array(
+                "story_id",
+            )
+        );
+        
+        if(count($duplicateStories) == 0){
+            if($pageHtml){
+                $titleObject = $pageHtml->find('.rich_media_title', 0);
+                $title = $titleObject ? $titleObject->plaintext : "";
+                
+                $contentObject = $pageHtml->find('.rich_media_content', 0);
+                $content = $contentObject ? $contentObject->plaintext : "";
+            }
             
-            $contentObject = $pageHtml->find('.rich_media_content', 0);
-            $content = $contentObject ? $contentObject->plaintext : "";
+            $storyDetails = array(
+                "story_id"    => "",
+                "user_id"     => '1',
+                "user_name"   => 'maosea0125',
+                "story_url"   => HackerNews\Common::validate_input($url),
+                "story_title" => HackerNews\Common::validate_input($title),
+                "story_desc"  => HackerNews\Common::validate_input($content),
+                "story_cat"   => '',
+                "story_score" => 9999,
+                "story_votes" => 1,
+                "story_time"  => time(),
+                "story_tags"  => ''
+            );
+            $storyId = $db->insert("stories", $storyDetails);
         }
         
-        $storyDetails = array(
-            "story_id"    => "",
-            "user_id"     => '1',
-            "user_name"   => 'maosea0125',
-            "story_url"   => HackerNews\Common::validate_input($url),
-            "story_title" => HackerNews\Common::validate_input($title),
-            "story_desc"  => HackerNews\Common::validate_input($content),
-            "story_cat"   => '',
-            "story_score" => 9999,
-            "story_votes" => 1,
-            "story_time"  => time(),
-            "story_tags"  => ''
-        );
-        $storyId = $db->insert("stories", $storyDetails);
         imap_delete($mailBox, $messagenumber);
     }
 }
