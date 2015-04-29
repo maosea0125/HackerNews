@@ -4,7 +4,7 @@ define('ROOT', realpath(dirname(__FILE__).'/../'));
 require ROOT . '/vendor/autoload.php';
 require ROOT . '/scripts/simple_html_dom.php';
 
-$config = new HackerNews\Config('../config.ini');
+$config = new HackerNews\Config(ROOT . '/config.ini');
 $base_url = $config['site.base_url'] . $config['site.base_path'] . '/';
 $db = HackerNews\Common::database($config);
 
