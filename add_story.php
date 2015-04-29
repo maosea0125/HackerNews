@@ -64,6 +64,11 @@ if(!preg_match('/^(http|https|ftp):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_
     $urlError = "请输入有效的URL地址";
 }
 
+$storyUrls = parse_url($_POST['story_url']);
+if($storyUrls['hostname'] != 'mp.weixin.qq.com'){
+    $urlError = "请输入微信的URL地址";
+}
+
 if($errors != 0){
     $twig = new HackerNews\TwigEngine($config);
     $vars = array(
